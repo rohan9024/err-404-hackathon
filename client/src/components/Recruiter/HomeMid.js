@@ -65,6 +65,7 @@ function HomeMid() {
       {/* Profiles */}
 
       <div class="flex-grow max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <h1 className='text-center bg-green-600 flex p-2 rounded-full absolute font-bold '>10</h1>
         <img class="rounded-t-lg" src="https://media.istockphoto.com/id/1324786380/photo/young-handsome-smiling-man-in-brown-shirt-and-glasses-feeling-confident-isolated-on-gray.jpg?b=1&s=170667a&w=0&k=20&c=7yoJXyEpncSC4wXBuuDeRgelV1lfAEqWmzCuu3JfRqg=" alt="" />
         <div class="p-5">
           <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Mosh Hamedani</h5>

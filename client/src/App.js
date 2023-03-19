@@ -19,23 +19,29 @@ import { ReactSession } from 'react-client-session';
 import Signup from './components/Signup';
 import Login from './components/Login';
 import Recruiter from './components/Recruiter/Recruiter';
+import { useMemo, useState } from 'react';
+import { UserContext } from "./contexts/loginContext";
 ReactSession.setStoreType("localStorage");
 
-
-
-
 function App() {
-  
+  const [ADMIN, SETADMIN] = useState(true)
+  const [CANDIDATE, SETCANDIDATE] = useState(true)
+  const [RECRUITER, SETRECRUITER] = useState(true)
+
+  const providerValue = useMemo(() => ({ ADMIN, SETADMIN, CANDIDATE, SETCANDIDATE, RECRUITER, SETRECRUITER }))
+
   return (
+      <UserContext.Provider value={providerValue}>
     <Router>
-          <Routes>
-          <Route exact path="/" element={ <Homepage />}></Route> 
-          <Route exact path="/login" element={ <Login /> }></Route>
+        <Routes>
+          <Route exact path="/" element={<Homepage />}></Route>
+          <Route exact path="/login" element={<Login />}></Route>
           <Route exact path="/signup" element={<Signup />}></Route>
           <Route exact path="/recruiter" element={<Recruiter />}></Route>
-          
-      </Routes>
+        </Routes>
     </Router>
+      </UserContext.Provider>
+
   );
 }
 
