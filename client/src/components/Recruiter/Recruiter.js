@@ -7,22 +7,17 @@ import search from "../../assets/search.svg"
 import settings from "../../assets/settings.svg"
 import calendar from "../../assets/calendar.svg"
 import Meeting from "../Recruiter/Meeting"
-// import { AuthContext } from '../../Contexts/AuthContext';
 import MainHeader from './HomeHeader';
 import HomeMid from './HomeMid';
 import HomeHeader from './HomeHeader';
-// import DonationSidebar from '../../components/Donation/DonationSidebar';
-// import SponsorSidebar from '../../components/Sponsor/SponsorSidebar';
-// import VolunteerSidebar from '../../components/Volunteers/VolunteerSidebar';
-// import CampaignSidebar from '../../components/Campaigns/CampaignSidebar';
-// import MainMid from './MainMid';
+
 
 function Recruiter() {
     const [campaignsObj, setCampaignsObj] = useState([])
     const [fetch, setFetch] = useState(false);
     // const { _admin } = useContext(AuthContext);
     const [HOME, SETHOME] = useState(true)
-    const [MESSAGE, SETMESSAGE] = useState(false)
+    const [VIDEO, SETVIDEO] = useState(false)
     const [CALENDAR, SETCALENDAR] = useState(false)
     const [SETTINGS, SETSETTINGS] = useState(false)
     const [SEARCH, SETSEARCH] = useState(false)
@@ -60,46 +55,7 @@ function Recruiter() {
 
 
 
-    // useEffect(() => {
-    //     !_admin ?
-    //         router.push("/")
-    //         : router.push("/components/AdminPanel");
 
-    //     if (!fetch) {
-    //         const fetchCampaignsObj = async () => {
-    //             const querySnapshot = await getDocs(collection(db, "campaigns"));
-    //             querySnapshot.forEach((doc) => {
-    //                 setCampaignsObj((campaignsObj) => [...campaignsObj, { id: doc.id, name: doc.data().name, url: doc.data().url, route: doc.data().route, desc: doc.data().desc }])
-    //             }
-    //             )
-    //         }
-    //         fetchCampaignsObj();
-    //         setFetch(true)
-    //     }
-
-
-    //     const unsub = onSnapshot(doc(db, "info", "qi1oMnSLTD30gyxViBmG"), (doc) => {
-    //         setRevenue(doc.data().revenue)
-    //     });
-
-    //     const unsub2 = onSnapshot(doc(db, "info", "qi1oMnSLTD30gyxViBmG"), (doc) => {
-    //         setCampaignCount(doc.data().campaigns)
-    //     });
-    //     const unsub3 = onSnapshot(doc(db, "info", "qi1oMnSLTD30gyxViBmG"), (doc) => {
-    //         setDonorCount(doc.data().donors)
-    //     });
-    //     const unsub4 = onSnapshot(doc(db, "info", "qi1oMnSLTD30gyxViBmG"), (doc) => {
-    //         setSponsorCount(doc.data().sponsors)
-    //     });
-    //     const unsub5 = onSnapshot(doc(db, "info", "qi1oMnSLTD30gyxViBmG"), (doc) => {
-    //         setVolunteerCount(doc.data().volunteers)
-    //     });
-    //     const unsub6 = onSnapshot(doc(db, "info", "qi1oMnSLTD30gyxViBmG"), (doc) => {
-    //         set_pickups_completed(doc.data().pickups_completed)
-    //     });
-
-
-    // }, [])
 
 
     //     <div className='flex justify-center items-center'>
@@ -123,7 +79,7 @@ function Recruiter() {
                 <div onClick={() => {
                     SETHOME(true)
                     SETCALENDAR(false)
-                    SETMESSAGE(false)
+                    SETVIDEO(false)
                     SETSEARCH(false)
                     SETSETTINGS(false)
                 }
@@ -135,7 +91,7 @@ function Recruiter() {
                 <div onClick={() => {
                     SETHOME(false)
                     SETCALENDAR(false)
-                    SETMESSAGE(true)
+                    SETVIDEO(true)
                     SETSEARCH(false)
                     SETSETTINGS(false)
 
@@ -145,7 +101,7 @@ function Recruiter() {
                 <div onClick={() => {
                     SETHOME(false)
                     SETCALENDAR(false)
-                    SETMESSAGE(true)
+                    SETVIDEO(true)
                     SETSEARCH(false)
                     SETSETTINGS(false)
                 }} className='w-10 h-10  cursor-pointer  rounded-full hover:ease-in-out hover:bg-gray-700 flex justify-center items-center hover:scale-125 hover:duration-200'>
@@ -154,7 +110,7 @@ function Recruiter() {
                 <div onClick={() => {
                     SETHOME(false)
                     SETCALENDAR(false)
-                    SETMESSAGE(false)
+                    SETVIDEO(false)
                     SETSEARCH(true)
                     SETSETTINGS(false)
 
@@ -164,7 +120,7 @@ function Recruiter() {
                 <div onClick={() => {
                     SETHOME(false)
                     SETCALENDAR(false)
-                    SETMESSAGE(false)
+                    SETVIDEO(false)
                     SETSEARCH(false)
                     SETSETTINGS(true)
 

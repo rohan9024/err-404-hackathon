@@ -23,7 +23,7 @@ function Signup() {
     //     "Third": false
     // });
 
-    const [choice, setChoice] = useState({  recruiter: false, candidate: false, })
+    const [choice, setChoice] = useState({ recruiter: false, candidate: false, })
 
     const [first, setFirst] = useState(true)
     const [second, setSecond] = useState(false)
@@ -42,12 +42,10 @@ function Signup() {
     const [imgUrl, setImgUrl] = useState(null);
     const [progresspercent, setProgresspercent] = useState(0);
 
-
     const handleSubmit = async (e) => {
-        console.log('hanldine submit')
         e.preventDefault()
-        // const emailfile = e.target[0]?.files[0]
-        // if (!file) return;
+        const file = e.target[0]?.files[0]
+        if (!file) return;
         // const storageRef = ref(storage, `files/${file.name}`);
         // const uploadTask = uploadBytesResumable(storageRef, file);
 
@@ -68,7 +66,7 @@ function Signup() {
         //     }
         // );
         var data = new FormData();
-        // data.append('resume', file);
+        data.append('resume', file);
         data.append('name', name);
         data.append('workExperience', workExperience);
         data.append('education', education);
@@ -81,12 +79,15 @@ function Signup() {
             body: data,
             mode: 'cors',
         });
+
         const jsonResult = await result.json();
-      
+
+        console.log(';jsonResult', jsonResult);
+        console.log(parsedResumeData);
         setParsedResumeData(jsonResult);
-        setName(parsedResumeData.Name)
-        setContact(parsedResumeData.Phone)
-        setEmail(parsedResumeData.Email)
+        setName(parsedResumeData.name)
+        setContact(parsedResumeData.phone)
+        setEmail(parsedResumeData.email)
     };
     // function handleSubmit(event) {
     //     // event.preventDefault();
@@ -178,9 +179,10 @@ function Signup() {
                 skills: Skills,
                 city: city
             });
-            toast.success("Signed up successfully: ", docRef.id);
-            window.location.reload()
-            console.log(Skills);
+            toast.success("Signed up successfully");
+
+            localStorage.getItem("userId", docRef.id);
+            navigate('/CandidateLogin')
 
         }
     }
@@ -200,6 +202,7 @@ function Signup() {
 
                         }}
                         className='flex justify-center items-center w-screen h-screen space-y-8'
+
                     >
                         <div className='w-3/4 h-screen p-2'>
                             <img src={sideimage} alt="sideimage" className='h-full w-full object-contain' />
@@ -387,6 +390,8 @@ function Signup() {
                                         }}
                                         type="password" placeholder="Password" className='placeholder:text-gray-600 px-5 py-2  outline-none border border-gray-800 w-64'
                                         onChange={(event) => { setPasswordRef(event.target.value) }}
+
+
                                     />
                                     <input
                                         style={{

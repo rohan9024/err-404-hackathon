@@ -21,6 +21,10 @@ import Login from './components/Login';
 import Recruiter from './components/Recruiter/Recruiter';
 import { useMemo, useState } from 'react';
 import { UserContext } from "./contexts/loginContext";
+import AdminLogin from './components/AdminLogin';
+import RecruiterLogin from './components/RecruiterLogin';
+import Candidate from './components/Candidate/Candidate';
+import CandidateLogin from './components/Candidate/CandidateLogin';
 ReactSession.setStoreType("localStorage");
 
 function App() {
@@ -28,7 +32,7 @@ function App() {
   const [CANDIDATE, SETCANDIDATE] = useState(true)
   const [RECRUITER, SETRECRUITER] = useState(true)
 
-  const providerValue = useMemo(() => ({ ADMIN, SETADMIN, CANDIDATE, SETCANDIDATE, RECRUITER, SETRECRUITER }))
+  const providerValue = useMemo(() => ({  CANDIDATE, SETCANDIDATE, RECRUITER, SETRECRUITER }))
 
   return (
       <UserContext.Provider value={providerValue}>
@@ -38,6 +42,12 @@ function App() {
           <Route exact path="/login" element={<Login />}></Route>
           <Route exact path="/signup" element={<Signup />}></Route>
           <Route exact path="/recruiter" element={<Recruiter />}></Route>
+          <Route exact path="/AdminLogin" element={<AdminLogin />}></Route>
+          <Route exact path="/RecruiterLogin" element={<RecruiterLogin />}></Route>
+          <Route exact path="/candidate" element={<Candidate />}></Route>
+          <Route exact path="/candidatelogin" element={<CandidateLogin />}></Route>
+          {/* <Route exact path="/candidatelogin" element={<CandidateLogin />}></Route>
+          <Route exact path="/candidatelogin" element={<CandidateLogin />}></Route> */}
         </Routes>
     </Router>
       </UserContext.Provider>

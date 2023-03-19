@@ -4,11 +4,6 @@ import logo from "../assets/logo.jpg"
 
 function Header() {
 
-
-    const login = () => {
-
-    }
-
     return (
         <div className='flex justify-between ml-10 mr-10 mt-6 text-[#37364d]'>
             <div className='flex justify-between space-x-6'>
@@ -18,7 +13,6 @@ function Header() {
             <div className=' border-gray-700 border-2 px-7 py-2 flex justify-center items-center hover:cursor-pointer hover:bg-gray-800 rounded-lg hover:text-white hover:ease-in-out hover:duration-300 hover:scale-105'>
             <h1 className='text-bold text-xl '><NavLink to="/login">Login</NavLink></h1>
             </div>
-
         </div>
     )
 }

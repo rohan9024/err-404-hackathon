@@ -70,6 +70,7 @@ function Login() {
                 const user = result.user;
                 // IdP data available using getAdditionalUserInfo(result)
                 console.log(user)
+                localStorage.setItem("user", user);
                 // ...
             }).catch((error) => {
                 // Handle Errors here.
@@ -207,71 +208,7 @@ function Login() {
 
 
             }
-            {second &&
-                <div
-                    style={{
-                        fontFamily: 'Medium',
-                    }}
 
-                    className='flex justify-center items-center w-screen h-screen'
-                >
-
-                    <div className='w-3/4 h-screen'>
-                        <img src={sideimage} alt="sideimage" className='h-full w-full object-contain' />
-                    </div>
-                    <div className='flex flex-col justify-center items-center w-screen h-[640px] space-y-5'>
-                        {/* <img
-                        className='object-contain w-28 h-28 cursor-pointer rounded-full border border-black '
-                        src={logo} alt="logo" /> */}
-                        <h1 className='text-center text-4xl mb-10'>Help the industries grow!</h1>
-                        <div className='flex flex-col justify-center items-center space-y-5'>
-
-                            {/* Email */}
-                            <input
-                                style={{
-                                    fontFamily: 'Medium'
-                                }}
-                                type="email" placeholder="Email address" className='placeholder:text-gray-600 px-5 py-2  outline-none border border-gray-800 w-72'
-                                onChange={(event) => { setEmail(event.target.value) }}
-
-                            />
-
-                            {/* Password */}
-                            <div className=''>
-                                <input
-                                    style={{
-                                        fontFamily: 'Medium'
-                                    }}
-                                    type="password" placeholder="Password" className='placeholder:text-gray-600 px-5 py-2  outline-none border border-gray-800 w-72'
-                                    onChange={(event) => { setPassword(event.target.value) }}
-                                />
-                                {/* <img src={show} alt="show" className='h-5 w-5 object-contain absolute z-10 -mt-10 -mr-[2000px]'/> */}
-                            </div>
-
-
-
-                            {/* Forgot Password */}
-                            <div className='flex justify-between items-center cursor-pointer \'>
-                                <h1 className='font-normal text-sm text-right ml-24 text-gray-500'>Forgot your Password?</h1>
-                            </div>
-
-                            {/* Sign In */}
-                            <div className='flex justify-center items-center w-72 bg-black text-white py-2'>
-                                <button type='submit' onClick={signIn}>Sign In</button>
-                            </div>
-
-                            {/* Sign Up Link */}
-                            <h1 className='text-gray-500'><NavLink to="/signup">Not a member?</NavLink></h1>
-
-                            <div className='h-[1px] w-64 bg-gray-500' />
-
-                            <div className='flex justify-center items-center bg-gray-200 p-3 px-4 py-3 rounded-lg text-gray-700 w-64' onClick={login}>
-                                <img src={google} alt="google" className='h-4 w-4 object-contain' />
-                                <h1 className='ml-4'>Sign In using google</h1>
-                            </div>
-                        </div>
-                    </div>
-                </div>}
         </>
 
     )

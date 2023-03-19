@@ -7,7 +7,10 @@ function HomeHeader() {
     const [Hired, setHired] = useState(false)
 
     return (
-        <div>
+        <div            style={{
+            fontFamily: 'Medium',
+
+        }}>
 
             <div className='flex justify-start items-center space-x-12 p-4 border border-gray-600'>
 
