@@ -1,6 +1,6 @@
 import React from 'react'
 import Header from './Header'
-import Main from './Main'
+import Main from "./Main"
 
 function Homepage() {
   return (
@@ -9,7 +9,7 @@ function Homepage() {
             <Header />
             <Main />
         </div>
-    </div>
+  </div>
   )
 }
 
